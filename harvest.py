@@ -91,6 +91,8 @@ def make_melon_types():
 
 
 melon_list = make_melon_types()
+# loop through melon_list to get each melon
+# add the code as the key and the melon as the value to a dict
 
 
 def print_pairing_info(melon_types):
@@ -101,11 +103,20 @@ def print_pairing_info(melon_types):
 
 def make_melon_type_lookup(melon_types):
     """Takes a list of MelonTypes and returns a dictionary of melon type by code."""
+    # create empty dictionary
+    # set keys to "reporting codes"
+    # set value as melontype instance
+    melon_code_dictionary = {}
 
-    # Fill in the rest
+    for melon in melon_types:
+        melon_code_dictionary[melon.code] = melon.name
+
+    return melon_code_dictionary
 
 
-print_pairing_info(melon_list)
+# print(make_melon_types)
+print(make_melon_type_lookup(melon_list))
+# print_pairing_info(melon_list)
 ############
 # Part 2   #
 ############
