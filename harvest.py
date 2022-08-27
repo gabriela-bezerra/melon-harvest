@@ -109,14 +109,16 @@ def make_melon_type_lookup(melon_types):
     melon_code_dictionary = {}
 
     for melon in melon_types:
-        melon_code_dictionary[melon.code] = melon.name
+        melon_code_dictionary[melon.code] = melon.__dict__
 
     return melon_code_dictionary
 
 
 # print(make_melon_types)
-print(make_melon_type_lookup(melon_list))
+# print(make_melon_type_lookup(melon_list))
 # print_pairing_info(melon_list)
+
+
 ############
 # Part 2   #
 ############
@@ -127,6 +129,18 @@ class Melon:
 
     # Fill in the rest
     # Needs __init__ and is_sellable methods
+
+    def __init__(self, type, shape, color, field, harvested_by):
+
+        self.type = type,
+        self.shape = shape,
+        self.color = color,
+        self.field = field,
+        self.harvested_by = harvested_by
+
+    def is_sellable(self):
+        if self.shape and self.color > 5 and self.field != 3:
+            return True
 
 
 def make_melons(melon_types):
